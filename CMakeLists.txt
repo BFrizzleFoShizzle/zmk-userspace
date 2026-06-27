@@ -15,11 +15,11 @@ zephyr_library_sources_ifdef(CONFIG_ELPEKENIN_BEHAVIOR_GPIO src/behaviors/behavi
 # automation
 zephyr_library_sources_ifdef(CONFIG_ELPEKENIN_LOCK_INDICATOR src/lock_indicator.c)
 
+# features
+zephyr_library_sources_ifdef(CONFIG_ELPEKENIN_LAYER_CALLBACK src/layer_callback.c)
+
 # only on central side (or unibody boards)
 if ((NOT CONFIG_ZMK_SPLIT) OR CONFIG_ZMK_SPLIT_ROLE_CENTRAL)
-  # features
-  zephyr_library_sources_ifdef(CONFIG_ELPEKENIN_LAYER_CALLBACK src/layer_callback.c)
-
   # behaviors
   zephyr_library_sources_ifdef(CONFIG_ELPEKENIN_BEHAVIOR_DEFAULT_LAYER src/behaviors/behavior_default_layer.c)
 endif()
